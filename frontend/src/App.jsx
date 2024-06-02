@@ -1,10 +1,11 @@
-import React from 'react'
+import { BrowserRouter } from "react-router-dom"
+import QuickMatch from "./pages/quickmatch/QuickMatch"
 
 function App() {
   return (
-    <div>
-      
-    </div>
+    <BrowserRouter>
+      <QuickMatch/>
+    </BrowserRouter>
   )
 }
 

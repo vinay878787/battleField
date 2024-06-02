@@ -1,0 +1,59 @@
+.quickMatchContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    background-image: linear-gradient(rgba(16, 16, 16, .6), rgba(16, 16, 16, .6)), url("https://uploads-ssl.webflow.com/6013fff62154adaa4600f932/601abb0b487fc1bfc56a1c3b_menu__background-30blur.jpg");
+    background-repeat: no-repeat;
+    background-size: 160%;
+    background-position: 60% 25%;
+    transition: transform 0.3s ease; 
+}
+
+.quickMatchSubContainer1 {
+    width: 4.2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-right: 2px solid rgba(134, 129, 129, 0.242); 
+    align-items: center;
+}
+.battleFieldIcons{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+}
+.navIcons,.featureIcons{
+    width: 2vw;
+    opacity: .5;
+    background-color: rgba(0, 0, 0, 0);
+    border-left: 3px solid rgba(0, 0, 0, 0);
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1.3vh;
+    padding: 0;
+    transition: opacity .1s cubic-bezier(.455, .03, .515, .955);
+    display: flex;
+}
+.additionalFeatureIcons{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.featureIcons{
+    width:1.2vw;
+}
+.navIcons:hover{
+    opacity: 1;
+}
+.featureIcons:hover{
+    opacity: 1;
+}
+
+@media screen and (max-width: 700px) {
+  .quickMatchContainer {
+    transform: rotate(-90deg);
+    width: 100vh;
+    height: 100vw; 
+  }
+}
