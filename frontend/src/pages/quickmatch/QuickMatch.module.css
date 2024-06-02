@@ -2,58 +2,196 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: space-between;
-    background-image: linear-gradient(rgba(16, 16, 16, .6), rgba(16, 16, 16, .6)), url("https://uploads-ssl.webflow.com/6013fff62154adaa4600f932/601abb0b487fc1bfc56a1c3b_menu__background-30blur.jpg");
+    gap: 10px;
+    background-image: linear-gradient(
+        rgba(16, 16, 16, 0.6),
+        rgba(16, 16, 16, 0.6)
+      ),
+      url("https://uploads-ssl.webflow.com/6013fff62154adaa4600f932/601abb0b487fc1bfc56a1c3b_menu__background-30blur.jpg");
     background-repeat: no-repeat;
     background-size: 160%;
     background-position: 60% 25%;
-    transition: transform 0.3s ease; 
-}
-
-.quickMatchSubContainer1 {
+    transition: transform 0.3s ease;
+  }
+  
+  .quickMatchSubContainer1 {
     width: 4.2vw;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    border-right: 2px solid rgba(134, 129, 129, 0.242); 
+    border-right: 2px solid rgba(134, 129, 129, 0.242);
     align-items: center;
-}
-.battleFieldIcons{
+  }
+  
+  .quickMatchSubContainer2 {
+    width: 8.2vw;
     display: flex;
     flex-direction: column;
-    gap:5px;
-}
-.navIcons,.featureIcons{
+    justify-content: space-around;
+    border-right: 2px solid rgba(134, 129, 129, 0.242);
+    align-items: start;
+    gap: 30px;
+    padding:15px;
+  }
+  
+  .battleFieldIcons {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-transform: uppercase;
+  }
+  
+  .navIcons,
+  .featureIcons {
     width: 2vw;
-    opacity: .5;
+    opacity: 0.5;
     background-color: rgba(0, 0, 0, 0);
     border-left: 3px solid rgba(0, 0, 0, 0);
     justify-content: flex-start;
     align-items: center;
     margin-bottom: 1.3vh;
     padding: 0;
-    transition: opacity .1s cubic-bezier(.455, .03, .515, .955);
+    transition: opacity 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
     display: flex;
-}
-.additionalFeatureIcons{
+  }
+  
+  .additionalFeatureIcons {
     display: flex;
     flex-direction: column;
-    gap:10px;
-}
-.featureIcons{
-    width:1.2vw;
-}
-.navIcons:hover{
-    opacity: 1;
-}
-.featureIcons:hover{
-    opacity: 1;
-}
-
-@media screen and (max-width: 700px) {
-  .quickMatchContainer {
-    transform: rotate(-90deg);
-    width: 100vh;
-    height: 100vw; 
+    gap: 10px;
   }
-}
+  
+  .featureIcons {
+    width: 1.2vw;
+    text-transform: uppercase;
+  }
+  
+  .navIcons:hover {
+    opacity: 1;
+  }
+  
+  .featureIcons:hover {
+    opacity: 1;
+  }
+  
+  .navIcons[title],
+  .featureIcons[title] {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .navIcons[title]::after,
+  .featureIcons[title]::after {
+    content: attr(title);
+    position: absolute;
+    top: 0; /* Position the tooltip above the image */
+    left: 0;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0s linear 0.3s;
+  }
+  
+  .navIcons[title]:hover::after,
+  .featureIcons[title]:hover::after {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .battleTypes,
+  .heading {
+    color: #fff;
+    list-style: none;
+    width: 100%;
+  }
+  
+  .battleTypes {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    overflow: auto;
+  }
+  
+  .battleTitle {
+    border-top: 2px solid rgba(134, 129, 129, 0.242);
+    text-transform: uppercase;
+    padding: 8px;
+  }
+  
+  .battleItem {
+    width: 100%;
+    font-size: 1.5vh;
+    font-weight:600;
+  }
+  
+  .heading {
+    margin-top: 15px;
+  }
+  
+  .heading1 {
+    font-size: 1.5vh;
+    font-weight: 600;
+  }
+  
+  .heading2 {
+    font-size: 4vh;
+    font-weight: 600;
+  }
+  
+  /* New styles */
+  
+  .quickMatchSubContainer2 {
+    width: 19vw;
+    text-align: start;
+    border-right: none;
+  }
+  
+  .arrow {
+    text-align: center;
+  }
+  
+  .headingSubContainer {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  
+  /* Scrollbar styles */
+  
+  .battleTypes::-webkit-scrollbar {
+    width: 1px; /* Width of scrollbar for webkit browsers */
+  }
+  
+  .battleTypes::-webkit-scrollbar-thumb {
+    width: 8px; /* Adjust the width of the scrollbar thumb */
+    background-color: #fff; /* Color of scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for scrollbar thumb */
+  }
+  
+  .battleTypes::-webkit-scrollbar-track {
+    background-color: transparent; /* Background color of scrollbar track */
+  }
+  
+  /* Style the first three .battleItem elements red */
+  
+  .battleItem:nth-child(-n+3) {
+    color: #ff8a00;
+  }
+  .battleItem:hover{
+    background-color: #fff;
+  }
+  @media screen and (max-width: 700px) {
+    .quickMatchContainer {
+      transform: rotate(-90deg);
+      width: 100vh;
+      height: 100vw;
+    }
+  }
