@@ -9,6 +9,10 @@ const corsOptions = {
 };
 app.use(express.json());
 app.use(cors(corsOptions));
+
+app.get("/", (req, res) => {
+  res.json({ message: "RUNNING" });
+});
 app.get("/quickmatch", (req, res) => {
   res.json({ message: data });
 });
